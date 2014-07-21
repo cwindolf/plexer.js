@@ -1,0 +1,39 @@
+div.plexer {
+
+}
+
+.plexer #switchboard {
+	margin: 0;
+	padding: 0;
+}
+
+.plexer #switchboard li {
+	padding: .25em 1em 0 1em;
+	background-color: #ddd;
+	border: 1px solid gray;
+	border-bottom: 0;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 3px 3px 0px 0px;
+	border-radius: 3px 3px 0px 0px; 
+	display: inline-block;
+	cursor: pointer;
+}
+
+.plexer #switchboard .active {
+	background-color: #ddf;
+	border: 1px solid black;
+	border-bottom: 0;
+}
+
+.plexer #content {
+	border: 1px solid black;
+	padding: 1em;
+}
+
+.plexer #content div {
+	display: none;
+}
+
+.plexer #content div.active {
+	display: block;
+}

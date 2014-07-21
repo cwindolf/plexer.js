@@ -1,0 +1,88 @@
+<!doctype HTML>
+<html>
+<head>
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+	<script src="src/plexer.js"></script>
+	<script>
+		$(function() {
+			plexer.new();
+		});
+	</script>
+	<link rel="stylesheet" href="src/plexer.css">
+	<style>
+		div.code-container {
+			border: 1px solid black;
+			border-radius: 5px;
+			background-color: #fafafa;
+			padding: 1em;
+			line-height: 0.25;
+		}
+	</style>
+</head>
+<body>
+	<h1>plexer.js</h1>
+	<br>
+	<p>plexer.js expects a document structure similar to this one:</p>
+	<br>
+	<h4>In the head:</h4>
+	<div class="code-container">
+		<pre><code>&#x3C;script src=&#x22;http://code.jquery.com/jquery.min.js&#x22;&#x3E;&#x3C;/script&#x3E;</code></pre>
+		<pre><code>&#x3C;script src=&#x22;src/plexer.js&#x22;&#x3E;&#x3C;/script&#x3E;</code></pre>
+		<pre><code>&#x3C;script&#x3E;</code></pre>
+		<pre><code>$(function() {</code></pre>
+		<pre><code>&#x9;plexer.new();</code></pre>
+		<pre><code>});</code></pre>	
+		<pre><code>&#x3C;/script&#x3E;</code></pre>
+		<pre><code>&#x3C;link rel=&#x22;stylesheet&#x22; href=&#x22;src/plexer.css&#x22;&#x3E;</code></pre>
+	</div>
+	<h4>In the body:</h4>
+	<div class="code-container">
+		<pre><code>&#x3C;div class=&#x22;plexer&#x22;&#x3E;</code></pre>
+		<pre><code>&#x9;&#x3C;ul id=&#x22;switchboard&#x22;&#x3E;</code></pre>
+		<pre><code>&#x9;&#x9;&#x3C;li data-content-name=&#x22;1&#x22;&#x3E;1&#x3C;/li&#x3E;</code></pre>
+		<pre><code>&#x9;&#x9;&#x3C;li data-content-name=&#x22;2&#x22;&#x3E;2&#x3C;/li&#x3E;</code></pre>
+		<pre><code>&#x9;&#x9;&#x3C;li data-content-name=&#x22;3&#x22;&#x3E;3&#x3C;/li&#x3E;</code></pre>
+		<pre><code>&#x9;&#x3C;/ul&#x3E;</code></pre>
+		<pre><code>&#x9;&#x3C;div id=&#x22;content&#x22;&#x3E;</code></pre>
+		<pre><code>&#x9;&#x9;&#x3C;div data-name=&#x22;1&#x22;&#x3E;</code></pre>
+		<pre><code>&#x9;&#x9;&#x9;&#x3C;h1&#x3E;This is the first content div.&#x3C;/h1&#x3E;</code></pre>
+		<pre><code>&#x9;&#x9;&#x9;&#x3C;p&#x3E;It has the &#x3C;em&#x3E;data-name&#x3C;/em&#x3E; attribute set to &#x3C;em&#x3E;1&#x3C;/em&#x3E;</code></pre>
+		<pre><code>&#x9;&#x9;&#x3C;/div&#x3E;</code></pre>
+		<pre><code>&#x9;&#x9;&#x3C;div data-name=&#x22;2&#x22;&#x3E;</code></pre>
+		<pre><code>&#x9;&#x9;&#x9;&#x3C;h1&#x3E;This is the second content div.&#x3C;/h1&#x3E;</code></pre>
+		<pre><code>&#x9;&#x9;&#x9;&#x3C;p&#x3E;It has the &#x3C;em&#x3E;data-name&#x3C;/em&#x3E; attribute set to &#x3C;em&#x3E;2&#x3C;/em&#x3E;</code></pre>
+		<pre><code>&#x9;&#x9;&#x3C;/div&#x3E;</code></pre>
+		<pre><code>&#x9;&#x9;&#x3C;div data-name=&#x22;3&#x22;&#x3E;</code></pre>
+		<pre><code>&#x9;&#x9;&#x9;&#x3C;h1&#x3E;This is the third content div.&#x3C;/h1&#x3E;</code></pre>
+		<pre><code>&#x9;&#x9;&#x9;&#x3C;p&#x3E;It has the &#x3C;em&#x3E;data-name&#x3C;/em&#x3E; attribute set to &#x3C;em&#x3E;3&#x3C;/em&#x3E;</code></pre>
+		<pre><code>&#x9;&#x9;&#x3C;/div&#x3E;</code></pre>
+		<pre><code>&#x9;&#x3C;/div&#x3E;</code></pre>
+		<pre><code>&#x3C;/div&#x3E;</code></pre>
+	</div>
+	<br>
+	<p>Notice that the list items inside <code>#switchboard</code> all have a <code>data-content-name</code> attribute set, and that there's a <code>div</code> inside <code>#content</code> with a matching <code>data-name</code> attribute set. These values can be anything as long as they match. I picked 1, 2, and 3, but that's just how I was feeling at the time.</p>
+	<p>Here's the example above in action:</p>
+	<div class="plexer">
+		<ul id="switchboard">
+			<li data-content-name="1">1</li>
+			<li data-content-name="2">2</li>
+			<li data-content-name="3">3</li>
+		</ul>
+		<div id="content">
+			<div data-name="1">
+				<h1>This is the first content div.</h1>
+				<p>It has the <code>data-name</code> attribute set to <code>1</code></p>
+			</div>
+			<div data-name="2">
+				<h1>This is the second content div.</h1>
+				<p>It has the <code>data-name</code> attribute set to <code>2</code></p>
+			</div>
+			<div data-name="3">
+				<h1>This is the third content div.</h1>
+				<p>It has the <code>data-name</code> attribute set to <code>3</code></p>
+			</div>
+		</div>
+	</div>
+	<p>Moderately slick. Style to taste and enjoy. MIT licensed.</p>
+</body>
+</html>
